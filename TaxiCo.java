@@ -14,10 +14,8 @@ public class TaxiCo
     private String companyName;
     // The name of the company's base.
     private final String base;    
-    // The fleet of taxis.
-    private ArrayList<Taxi> taxiFleet;
-    // The fleet of shuttles.
-    private ArrayList<Shuttle> shuttleFleet;
+    // The fleet
+    private ArrayList<Vehicle> fleet;
     // A value for allocating taxi ids.
     private int nextID;
     // A list of available destinations for shuttles.
@@ -31,8 +29,7 @@ public class TaxiCo
     {
         companyName = name;
         base = "base";
-        taxiFleet = new ArrayList<Taxi>();
-        shuttleFleet = new ArrayList<Shuttle>();
+        fleet = new ArrayList<Vehicle>();
         nextID = 1;
         destinations = new ArrayList<String>();
         fillDestinations();
@@ -45,7 +42,7 @@ public class TaxiCo
     public void addTaxi()
     {
         Taxi taxi = new Taxi(base, "Car #" + nextID);
-        taxiFleet.add(taxi);
+        fleet.add(taxi);
         // Increment the ID for the next one.
         nextID++;
     }
@@ -71,7 +68,7 @@ public class TaxiCo
         }
         
         Shuttle shuttle = new Shuttle("Shuttle #" + nextID, route);
-        shuttleFleet.add(shuttle);
+        fleet.add(shuttle);
         // Increment the ID for the next one.
         nextID++;
     }
@@ -81,11 +78,11 @@ public class TaxiCo
      * @param id The id of the taxi to be returned.
      * @return The matching taxi, or null if no match is found.
      */
-    public Taxi lookup(String id)
+    public Vehicle lookup(String id)
     {
         boolean found = false;
-        Taxi taxi = null;
-        Iterator<Taxi> it = taxiFleet.iterator();
+        Vehicle taxi = null;
+        Iterator<Vehicle> it = fleet.iterator();
         while(!found && it.hasNext()) {
             taxi = it.next();
             if(id.equals(taxi.getID())) {
@@ -106,11 +103,8 @@ public class TaxiCo
     public void showStatus()
     {
         System.out.println("Current status of the " + companyName + " fleet");
-        for(Taxi taxi : taxiFleet) {
-            System.out.println(taxi.getStatus());
-        }
-        for(Shuttle shuttle : shuttleFleet) {
-            System.out.println(shuttle.getStatus());
+        for(Vehicle vehicle : fleet) {
+            System.out.println(vehicle.getStatus());
         }
     }
     
