@@ -5,7 +5,7 @@ public class Vehicle
     // The destination of this vehicle.
     private String destination;
     // The location of this vehicle.
-    //private String location; TEMPORÁRIO
+    private String location;
 
 
 
@@ -26,8 +26,7 @@ public class Vehicle
      */
     public String getStatus()
     {
-        //return id + " at " + location + " headed for " + destination;
-        return id + " headed for " + destination; //TEMPORARIO
+        return id + " at " + location + " headed for " + destination;
     }
 
     /**
@@ -39,17 +38,25 @@ public class Vehicle
         return id;
     }
 
+
     /**
      * Return the location of the vehicle.
      * @return The location of the vehicle.
      */
-
-    /* LOCATION VOLTANDO PRA CLASSE BASE
     public String getLocation()
     {
         return location;
     }
-    /*
+
+
+    /**
+     * Sets the location of the vehicle.
+     * @param location The intended location
+     */
+    public void setLocation(String location)
+    {
+        this.location = location;
+    }
 
 
     /**

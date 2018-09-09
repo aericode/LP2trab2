@@ -9,7 +9,7 @@
 public class Taxi extends Vehicle
 {
 
-    private String location;
+
     private boolean free;
 
     /**
@@ -42,19 +42,9 @@ public class Taxi extends Vehicle
      */
     public void arrived()
     {
-        location = getDestination();
+        setLocation(getDestination());
         setDestination(null);
         free = true;
-    }
-
-    public String getLocation()
-    {
-        return location;
-    }
-
-    public void setLocation(String location)
-    {
-        this.location = location;
     }
 
 }

@@ -59,9 +59,8 @@ public class Helper
 		}
 	}
 
-
 	/**
-	 * Test the status of a taxi after it has arrived.
+	 * Test if I messed up.
 	 */
 	public void testRegression()
 	{
@@ -69,6 +68,8 @@ public class Helper
 		System.out.println(taxi1.getID());
 		System.out.println(taxi1.getStatus());
 		System.out.println(taxi1.getLocation());
+		taxi1.setDestination("Las Vegas");
+		System.out.println(taxi1.getStatus());
 	}
 
 	public static void main(String[] args) {

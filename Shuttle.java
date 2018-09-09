@@ -10,7 +10,6 @@ import java.util.*;
  */
 public class Shuttle extends Vehicle
 {
-    private String location;
     // The circular route of this shuttle.
     private ArrayList<String> route;
     // The destination number in route that the shuttle is
@@ -34,7 +33,7 @@ public class Shuttle extends Vehicle
      */
     public void arrived()
     {
-        location = getDestination();
+        setLocation(getDestination());
         setNextDestination();
     }
     
@@ -62,13 +61,8 @@ public class Shuttle extends Vehicle
         this.route = new ArrayList<String>();
         this.route.addAll(route);
         destinationNumber = 0;
-        location = route.get(destinationNumber);
+        setLocation(route.get(destinationNumber));
         setNextDestination();
-    }
-
-    public String getLocation()
-    {
-        return location;
     }
 
 }
