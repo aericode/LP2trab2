@@ -8,14 +8,8 @@ import java.util.*;
  * @author David J. Barnes 
  * @version 2010.12.03
  */
-public class Shuttle
+public class Shuttle extends Vehicle
 {
-    // A unique ID for this shuttle.
-    private String id;
-    // The next destination of this shuttle on its
-    // circular route.
-    private String destination;
-    // The location of this shuttle.
     private String location;
     // The circular route of this shuttle.
     private ArrayList<String> route;
@@ -31,45 +25,8 @@ public class Shuttle
      */
     public Shuttle(String id, ArrayList<String> route)
     {
-        this.id = id;
+        super(id);
         setRoute(route);
-    }
-    
-    /**
-     * Return the status of this shuttle.
-     * @return The status.
-     */
-    public String getStatus()
-    {
-        return id + " at " + location + " headed for " +
-               destination;
-    }
-    
-    /**
-     * Return the ID of the shuttle.
-     * @return The ID of the shuttle.
-     */
-    public String getID()
-    {
-        return id;
-    }
-    
-    /**
-     * Return the location of the shuttle.
-     * @return The location of the shuttle.
-     */
-    public String getLocation()
-    {
-        return location;
-    }
-    
-    /**
-     * Return the destination of the shuttle.
-     * @return The destination of the shuttle.
-     */
-    public String getDestination()
-    {
-        return destination;
     }
     
     /**
@@ -77,7 +34,7 @@ public class Shuttle
      */
     public void arrived()
     {
-        location = destination;
+        location = getDestination();
         setNextDestination();
     }
     
@@ -94,15 +51,6 @@ public class Shuttle
         }
         setDestination(route.get(destinationNumber));
     }
-
-    /**
-     * Set the intented destination of the suttle.
-     * @param destination The intended destination.
-     */
-    private void setDestination(String destination)
-    {
-        this.destination = destination;
-    }
     
     /**
      * Set the route for this shuttle.
@@ -116,6 +64,11 @@ public class Shuttle
         destinationNumber = 0;
         location = route.get(destinationNumber);
         setNextDestination();
+    }
+
+    public String getLocation()
+    {
+        return location;
     }
 
 }
