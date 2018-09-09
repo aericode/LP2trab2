@@ -74,23 +74,23 @@ public class TaxiCo
     }
     
     /**
-     * Return the taxi with the given id.
-     * @param id The id of the taxi to be returned.
-     * @return The matching taxi, or null if no match is found.
+     * Return the vehicle with the given id.
+     * @param id The id of the vehicle to be returned.
+     * @return The matching vehicle, or null if no match is found.
      */
     public Vehicle lookup(String id)
     {
         boolean found = false;
-        Vehicle taxi = null;
+        Vehicle vehicle = null;
         Iterator<Vehicle> it = fleet.iterator();
         while(!found && it.hasNext()) {
-            taxi = it.next();
-            if(id.equals(taxi.getID())) {
+            vehicle = it.next();
+            if(id.equals(vehicle.getID())) {
                 found = true;
             }
         }
         if(found) {
-            return taxi;
+            return vehicle;
         }
         else {
             return null;
