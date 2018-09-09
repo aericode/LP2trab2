@@ -26,7 +26,11 @@ public class Vehicle
      */
     public String getStatus()
     {
-        return id + " at " + location + " headed for " + destination;
+        if(destination!=null){
+            return id + " at " + location + " headed for " + destination;
+        }else{
+            return id + " is ocious at " + location;
+        }
     }
 
     /**
