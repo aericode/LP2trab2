@@ -59,6 +59,18 @@ public class Helper
 		}
 	}
 
+
+	/**
+	 * Test the status of a taxi after it has arrived.
+	 */
+	public void testRegression()
+	{
+		Taxi taxi1 = (Taxi) taxiCo1.lookup("Car #1");
+		System.out.println(taxi1.getID());
+		System.out.println(taxi1.getStatus());
+		System.out.println(taxi1.getLocation());
+	}
+
 	public static void main(String[] args) {
 		Helper helper = new Helper();
 		System.out.println("Primeiro teste");
@@ -66,6 +78,9 @@ public class Helper
 		
 		System.out.println("Segundo teste");
 		helper.testArrived();
+
+		System.out.println("Terceiro teste");
+		helper.testRegression();
 	}
 }
 
